@@ -46,7 +46,8 @@ app.delete('/payroll/:payroll_id', deletePayroll);
 app.post('/application/leave', postLeaveApplication);
 
 
-// 🔹 Start server
-app.listen(2006, () => {
-    console.log('Server running at http://localhost:2006');
+// 🔹 Start server - FIXED FOR RENDER
+const PORT = process.env.PORT || 2006;
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running at http://localhost:${PORT}`);
 });
