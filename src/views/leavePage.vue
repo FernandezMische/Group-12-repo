@@ -1,9 +1,6 @@
 // Add this import at the top
 import API_BASE_URL from '@/config/api.js';
 
-// Then change ALL fetch calls from:
-// 'http://localhost:2006/leave'
-// To:
 `${API_BASE_URL}/leave`
 
 // Example for approveRequest:
