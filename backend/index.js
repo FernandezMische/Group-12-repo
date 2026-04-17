@@ -1,40 +1,36 @@
 import express from 'express';
 import cors from 'cors';
 
-// Employee controllers (UNCHANGED)
+// Employee controllers
 import {
     getEmployees,
     getTotalEmployees
 } from './controllers/employeeController.js';
 
-//  Attendance controller functions (keep if you need them)
+// Attendance controller functions
 import { getAttendance } from './controllers/attendanceController.js';
 
+// Leave controllers
+import { getLeave, patchLeave, postLeave, deleteLeave } from './controllers/leaveController.js';
 
-import { getLeave,patchLeave,postLeave,deleteLeave } from './controllers/leaveController.js'
-
-// 🔹 Payroll controller functions
+// Payroll controller functions
 import { getPayroll, postPayroll, patchPayroll, deletePayroll } from './controllers/payrollController.js';
 import { postLeaveApplication } from './controllers/applicationController.js';
 
 const app = express();
-// ... your other imports
-import cors from 'cors';
 
-const app = express();
-
+// CORS configuration
 app.use(cors({
   origin: [
     'http://localhost:5173',                 // Local Vite dev server
     'http://localhost:2006',                 // Local backend
-    'https://hr-management-app-three.vercel.app' // ✅ Your live Vercel frontend
+    'https://hr-management-app-three.vercel.app' // Your live Vercel frontend
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// ... rest of your app
 app.use(express.json());
 
 // Employee routes
@@ -44,25 +40,22 @@ app.get('/employee/total', getTotalEmployees);
 // Attendance routes
 app.get('/attendance', getAttendance);
 
-
-app.get('/leave',getLeave)
-app.post('/leave', postLeave)
+// Leave routes
+app.get('/leave', getLeave);
+app.post('/leave', postLeave);
 app.patch('/leave/:leaveRequests_ID', patchLeave);
-app.delete('/leave',deleteLeave)
+app.delete('/leave', deleteLeave);
 
-// Start server
-
-// 🔹 Payroll routes
+// Payroll routes
 app.get('/payroll', getPayroll);
 app.post('/payroll', postPayroll);
 app.patch('/payroll/:payroll_id', patchPayroll);
 app.delete('/payroll/:payroll_id', deletePayroll);
 
-// 🔹 Leave application route
+// Leave application route
 app.post('/application/leave', postLeaveApplication);
 
-
-// 🔹 Start server - FIXED FOR RENDER
+// Start server - FIXED FOR RENDER
 const PORT = process.env.PORT || 2006;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running at http://localhost:${PORT}`);
