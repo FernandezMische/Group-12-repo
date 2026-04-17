@@ -1,8 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import NavBar from "@/components/NavBar.vue"
-import API_BASE_URL from '@/config/api.js'  // ← ADD THIS
-
+import API_BASE_URL from '../config/api.js';
 const employees = ref([])
 
 const getImage = (fileName) => {
