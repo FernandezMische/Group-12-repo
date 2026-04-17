@@ -2,8 +2,7 @@
 import { ref, onMounted, computed } from "vue";
 import axios from "axios";
 import NavBar from "@/components/NavBar.vue";
-import API_BASE_URL from '@/config/api.js';  // ← ADD THIS
-
+import API_BASE_URL from '../config/api.js';
 const people = ref([]);
 const totalEmployees = ref(0);
 const totalAttendanceRecordings = ref(0);
