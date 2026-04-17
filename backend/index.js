@@ -18,13 +18,23 @@ import { getPayroll, postPayroll, patchPayroll, deletePayroll } from './controll
 import { postLeaveApplication } from './controllers/applicationController.js';
 
 const app = express();
+// ... your other imports
+import cors from 'cors';
+
+const app = express();
+
 app.use(cors({
   origin: [
-    'http://localhost:5173',
-    'http://localhost:2006',
-    'https://your-vercel-app.vercel.app'  // Your Vercel frontend URL
-  ]
-})); 
+    'http://localhost:5173',                 // Local Vite dev server
+    'http://localhost:2006',                 // Local backend
+    'https://hr-management-app-three.vercel.app' // ✅ Your live Vercel frontend
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// ... rest of your app
 app.use(express.json());
 
 // Employee routes
