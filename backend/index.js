@@ -18,7 +18,13 @@ import { getPayroll, postPayroll, patchPayroll, deletePayroll } from './controll
 import { postLeaveApplication } from './controllers/applicationController.js';
 
 const app = express();
-app.use(cors()); 
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:2006',
+    'https://your-vercel-app.vercel.app'  // Your Vercel frontend URL
+  ]
+})); 
 app.use(express.json());
 
 // Employee routes
