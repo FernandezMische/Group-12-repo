@@ -1,6 +1,7 @@
 // Add this import at the top
 
 import API_BASE_URL from '../config/api.js';
+console.log('API_BASE_URL is:', API_BASE_URL);
 `${API_BASE_URL}/leave`
 
 
