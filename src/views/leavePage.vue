@@ -1,9 +1,9 @@
 // Add this import at the top
-import API_BASE_URL from '@/config/api.js';
 
+import API_BASE_URL from '../config/api.js';
 `${API_BASE_URL}/leave`
 
-// Example for approveRequest:
+
 const approveRequest = async (emp, req) => {
   try {
     const res = await fetch(`${API_BASE_URL}/leave/${req.leaveRequests_ID}`, {
