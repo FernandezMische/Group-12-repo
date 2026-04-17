@@ -2,8 +2,7 @@
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import NavBar from "@/components/NavBar.vue";
-import API_BASE_URL from '@/config/api.js';  // ← ADD THIS
-
+import API_BASE_URL from '../config/api.js';
 const router = useRouter();
 const employees = ref([]);
 
