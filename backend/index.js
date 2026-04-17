@@ -22,8 +22,7 @@ const app = express();
 // CORS configuration
 app.use(cors({
   origin: [
-    'http://localhost:5173',                 // Local Vite dev server
-    'http://localhost:2006',                 // Local backend
+    'http://localhost:5173',                 // Local Vite dev server                // Local backend
     'https://hr-management-app-three.vercel.app' // Your live Vercel frontend
   ],
   credentials: true,
