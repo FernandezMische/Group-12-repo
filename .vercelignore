@@ -1,1 +1,1 @@
-echo "backend/" >> .vercelignore
+backend/
