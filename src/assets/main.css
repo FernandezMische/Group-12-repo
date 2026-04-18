@@ -1,35 +1,11 @@
-/* Mobile Responsive Fixes */
-* {
-  box-sizing: border-box;
-}
-
-/* Make everything responsive */
 body {
+  background-color: rgb(186, 113, 255);
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-/* Container fixes */
-.container, .containerBox, .card, .card-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-/* Responsive tables - make them scroll horizontally */
-.table-container,
-.table-responsive {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-table {
-  width: 100%;
-  min-width: 500px;
-}
-
-/* Make cards stack vertically on mobile */
+/* Just make things fit on mobile */
 @media (max-width: 768px) {
   .containerBox {
     flex-direction: column !important;
@@ -45,146 +21,26 @@ table {
     margin-top: 20px;
   }
   
-  .calendar-grid {
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-  }
-  
-  .calendar-grid > li {
-    padding: 5px;
-    min-height: 60px;
-    font-size: 10px;
-  }
-  
-  .calendar-grid time {
-    font-size: 12px;
-  }
-  
-  /* Make buttons full width on mobile */
-  .btn-container {
-    flex-direction: column;
-  }
-  
-  .btn-container .btn {
-    width: 100%;
-    margin: 5px 0;
-  }
-  
-  /* Card fixes */
-  .card {
-    margin: 10px !important;
-    padding: 10px !important;
-  }
-  
-  .card-body {
-    padding: 10px !important;
-  }
-  
-  /* Employee cards - single column */
   .employees-row {
-    flex-direction: column;
+    flex-direction: column !important;
     align-items: center;
   }
   
   .employee-card {
-    width: 100% !important;
-    max-width: 350px;
+    width: 90% !important;
   }
   
-  /* Attendance page */
   #outerCard {
     width: 95% !important;
     margin: 10px auto !important;
-    padding: 10px !important;
   }
   
-  .filters {
-    flex-wrap: wrap;
-  }
-  
-  .filters button {
-    flex: 1;
-    min-width: 80px;
-  }
-  
-  /* Dashboard cards */
-  .sideBoxes .card {
-    width: 100% !important;
-    margin: 10px 0 !important;
-  }
-  
-  /* Payroll table */
-  .container {
-    padding: 10px !important;
+  /* Make tables scroll horizontally instead of breaking */
+  .table-responsive {
     overflow-x: auto;
   }
   
-  /* Forms */
-  .form .row {
-    flex-direction: column;
-  }
-  
-  .input-field input,
-  .input-field select,
-  .input-field textarea {
-    font-size: 16px !important; /* Prevents zoom on iOS */
-  }
-}
-
-/* For very small phones */
-@media (max-width: 480px) {
-  .calendar-grid > li {
-    padding: 3px;
-    min-height: 50px;
-    font-size: 8px;
-  }
-  
-  .calendar-grid time {
-    font-size: 10px;
-  }
-  
-  .btn {
-    padding: 8px 16px !important;
-    font-size: 14px !important;
-  }
-  
-  h1, h2, h3, h5 {
-    font-size: 1.2rem !important;
-  }
-}
-
-/* Fix for tables on mobile */
-@media (max-width: 768px) {
-  table, thead, tbody, th, td, tr {
-    display: block;
-  }
-  
-  thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-  
-  tr {
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-  }
-  
-  td {
-    border: none;
-    position: relative;
-    padding-left: 50% !important;
-    text-align: left;
-  }
-  
-  td:before {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
-    font-weight: bold;
-    content: attr(data-label);
+  table {
+    min-width: 600px;
   }
 }
