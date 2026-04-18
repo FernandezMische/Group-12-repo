@@ -1,2 +1,4 @@
-backend/
-**/backend/**
+echo "backend/" >> .vercelignore
+git add .vercelignore
+git commit -m "Ignore backend folder for Vercel"
+git push origin main
